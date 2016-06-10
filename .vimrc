@@ -1,1 +1,1 @@
-/home/macaroot/.vimrc
+.vimrc
