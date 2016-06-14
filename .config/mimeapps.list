@@ -1,0 +1,29 @@
+[Default Applications]
+x-scheme-handler/http=userapp-Firefox-KB0RIY.desktop
+x-scheme-handler/https=userapp-Firefox-KB0RIY.desktop
+x-scheme-handler/ftp=userapp-Firefox-KB0RIY.desktop
+x-scheme-handler/chrome=userapp-Firefox-KB0RIY.desktop
+text/html=userapp-Firefox-KB0RIY.desktop
+application/x-extension-htm=userapp-Firefox-KB0RIY.desktop
+application/x-extension-html=userapp-Firefox-KB0RIY.desktop
+application/x-extension-shtml=userapp-Firefox-KB0RIY.desktop
+application/xhtml+xml=userapp-Firefox-KB0RIY.desktop
+application/x-extension-xhtml=userapp-Firefox-KB0RIY.desktop
+application/x-extension-xht=userapp-Firefox-KB0RIY.desktop
+
+[Added Associations]
+x-scheme-handler/http=userapp-Firefox-KB0RIY.desktop;
+x-scheme-handler/https=userapp-Firefox-KB0RIY.desktop;
+x-scheme-handler/ftp=userapp-Firefox-KB0RIY.desktop;
+x-scheme-handler/chrome=userapp-Firefox-KB0RIY.desktop;
+text/html=userapp-Firefox-KB0RIY.desktop;
+application/x-extension-htm=userapp-Firefox-KB0RIY.desktop;
+application/x-extension-html=userapp-Firefox-KB0RIY.desktop;
+application/x-extension-shtml=userapp-Firefox-KB0RIY.desktop;
+application/xhtml+xml=userapp-Firefox-KB0RIY.desktop;
+application/x-extension-xhtml=userapp-Firefox-KB0RIY.desktop;
+application/x-extension-xht=userapp-Firefox-KB0RIY.desktop;
+image/png=feh.desktop;
+image/jpeg=feh.desktop;
+image/gif=feh.desktop;
+video/x-matroska=mpv.desktop;vlc.desktop;

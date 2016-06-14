@@ -1,0 +1,43 @@
+#STEAM, getting it to work with free ATI driver
+ (# remove appcache after every update to get steam to launch, might help sometime)
+rm -Rf ~/.steam/steam/appcache
+ # apparently I can just do this if I know graphics driver is loaded properly:
+    #!/bin/bash
+    export LD_PRELOAD='/usr/$LIB/libstdc++.so.6' #Export so all child processes are affected as well
+    export DISPLAY=:0
+    #export LIBGL_DEBUG=verbose
+    steam
+ # but this is the long version:
+    #1 running steam shows it can't open radeonsi_dri.so
+    #2 verify driver is working -> direct rendering: Yes
+        DISPLAY=:0 glxinfo | grep -i direct
+    #3 open Steam in verbose mode to diagnose -> can't find required LibC6 version
+        DISPLAY=:0 LIBGL_DEBUG=verbose steam
+    #4 check which version behind libstdc++.so.6 -> gives steam's version
+        ls -l /home/macaroot/.local/share/Steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/libstdc++.so.6
+    #5 check which version is in /usr/lib -> gives driver's version (there is also one in lib32)
+        ls -l /usr/lib/libstdc++.so.6
+            # was ls -l /usr/lib/i386-linux-gnu/libstdc++.so.6 in tutorial but I didn't have i386-linux-gnu direct
+    #6 tell steam to load the latest libstdc++.so.6 from both lib and lib32 as necessary, use this to run Steam
+LD_PRELOAD='/usr/$LIB/libstdc++.so.6' DISPLAY=:0 steam
+
+    
+#WACOM, getting it's input tied to one monitor
+ # set wacom input to one desktop
+    # check the input devices
+    xinput --list
+    # check monitors
+    xrandr
+xsetwacom set "Wacom Cintiq 22HD Pad pad" MapToOutput DVI-0 && xsetwacom set "Wacom Cintiq 22HD Pen stylus" MapToOutput DVI-0 && xsetwacom set "Wacom Cintiq 22HD Pen eraser" MapToOutput DVI-0
+
+# scripting 101
+	# show what paths bash looks for executable files automatically
+		echo $PATH
+	# add this line to .bash_profile to add such directory path, if you just write it on bash it'll forget it at the end of session
+		export PATH=$PATH:directory
+	# make shell session refresh and read .bash_profile
+		source ~/.bash_profile
+	# You've added ~/Junk as one such directory
+
+# you have fuzzy file search, try updating it once in a whilw though git
+	cd ~/.fzf && git pull && ./install

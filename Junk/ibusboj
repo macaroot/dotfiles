@@ -1,0 +1,4 @@
+#!/bin/bash
+# start ibus daemon
+
+ibus-daemon

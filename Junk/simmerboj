@@ -1,0 +1,16 @@
+#!/bin/bash
+
+from="/home/macaroot"
+to="/home/macaroot/dotfiles"
+
+cp -pR $from/{.bash_profile,.bashrc,.gtkrc-2.0,.i3status.conf,.inputrc,Junk,pacgetto,.tmux.conf,.vimrc,.xinitrc,.Xresources} $to
+
+mkdir -p $to/{.config,.i3}
+
+cp -pR $from/.config/mimeapps.list $to/.config/mimeapps.list
+cp -pR $from/.i3/config $to/.i3/config
+
+unset from
+unset to
+
+echo simming done

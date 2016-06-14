@@ -1,0 +1,10 @@
+#!/bin/bash
+# open vimsession, 'vim editor template' is default
+
+read -p 'Which session do you wish to continue? (Default is vet) ' session
+
+if [[ "$session" = "" ]]; then
+	vim -S ~/CODING/vimsession/vet
+else
+	vim -S ~/CODING/vimsession/"$session"
+fi
