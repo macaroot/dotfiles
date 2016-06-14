@@ -1,1 +1,91 @@
-.Xresources
+! colors I suppose
+XTerm*termName: XTerm-color
+! interpret data as UTF-8
+XTerm*locale: true
+! to get Alt working on keyboard shortcuts
+XTerm*metaSendsEscape: true
+! lines saved on a window
+XTerm*saveLines: 4096
+XTerm*scrollBar: false
+XTerm*jumpScroll: true
+XTerm*loginShell: true
+XTerm*faceName: Hack
+XTerm*faceSize: 8
+XTerm*initialFont: 4
+
+! URxvt things
+URxvt*loginShell: true
+URxvt*termName: rxvt-unicode
+URxvt*scrollBar: false
+! URxvt*scrollBar_right: true
+! Urxvt*scrollBar_floating: true
+! URxvt*thickness: 3
+! do not scroll to the bottom with output
+URxvt*scrollTtuOutput: false
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+URxvt*saveLines: 4096
+! font, xft searches for fonts in /usr/share/fonts/X11 or just ~/.fonts
+URxvt.font: xft:Hack:size=8
+URxvt.letterSpace: -1
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+Xft.fadecolor: rgb:d5/b5/b5
+eft.fade: 15
+
+
+! colors mang, for all X applications, solarized
+#define S_base03 rgb:00/2b/36
+#define S_base02 rgb:07/36/42
+#define S_base01 rgb:58/6e/75
+#define S_base00 rgb:65/7b/83
+#define S_base0 rgb:83/94/96
+#define S_base1 rgb:93/a1/a1
+#define S_base2 rgb:ee/e8/d5
+#define S_base3 rgb:fd/f6/e3
+*background: S_base3
+*foreground: S_base01
+*fadeColor: S_base3
+*cursorColor: S_base1
+*pointerColorBackground: S_base1
+*pointerColorForeground: S_base1
+#define S_yellow rgb:b5/89/00
+#define S_orange rgb:cb/4b/16
+#define S_red rgb:dc/32/2f
+#define S_magenta rgb:d3/36/82
+#define S_violet rgb:6c/71/c4
+#define S_blue rgb:26/8b/d2
+#define S_cyan rgb:2a/a1/98
+#define S_green rgb:85/99/00
+!! black dark/light
+*color0: S_base02
+*color8: S_base03
+!! red dark/light
+*color1: S_red
+*color9: S_orange
+!! green dark/light
+*color2: S_green
+*color10: S_base01
+!! yellow dark/light
+*color3: S_yellow
+*color11: S_base00
+!! blue dark/light
+*color4: S_blue
+*color12: S_base0
+!! magenta dark/light
+*color5: S_magenta
+*color13: S_violet
+!! cyan dark/light
+*color6: S_cyan
+*color14: S_base1
+!! white dark/light
+*color7: S_base2
+*color15: S_base3
+! one extra for urxvt apparently
+URXvt.color12: rgb:5c/5c/ff

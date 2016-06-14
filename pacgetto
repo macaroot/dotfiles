@@ -1,1 +1,59 @@
-pacgetto
+# fonts
+noto-fonts -through firefox
+noto-fonts-emoji
+noto-fonts-cjk -this might get me jap support, IT DID!
+ttf-dejavu	-I think
+Hack
+
+
+# themes
+hicolor-icon-them -from archwiki icon article: it is recommended to install hicol.. as many programs will depoist their icons in /usr/share/icons/hicolor and most other icon themes will inherit icons from the Hicolor icon theme
+numix-theme
+flattr-icon-theme
+
+# gitted, I feel like I missed one or two before Font-Awesome, though might be hallucination
+Font-Awesome
+
+#rest
+grub
+efibootmgr
+sudo
+bash-completion
+xorg-server
+xorg-server-utils
+xf86-video-ati
+i3
+xorg-xdm	-systemctl enabled
+xterm
+dmenu
+htop
+vim
+***ummmm something like
+chromium	-got noto.ttf or something fron from it
+alsa-utils
+thunar
+polkit	-power management, for enabling non-sudo to shutdown the comp
+xorg-xprop	-x window properties
+hwdetect
+tmux
+grsync
+firefox
+git
+openssh -for ssh-keygen and ssh in general
+thunar-volman
+gvfs	-this and previous for automounting
+feh	-image viewer and wallpaper manager
+xclip -simple terminalbased clipboard, might not work between apps, apparently works between x apps, middleclickpaste
+strace -checking what files a command checks!!
+vlc !! didn't work out of box, uninstalled but didn't remove deps, so very slight bloat
+mpv -to replace vlc, WORKS FUCKING BEAUTIFULLY
+lxappearance -to configure gtk apps, I still don't quite get all the different frameworks. Apparently I can just get them all without much problem. But ofc it's wise to get a way to configure them, not waste hours on that. Also apparently Arch is pretty gtk friendly? Maybe idk the wiki is odd
+zip
+unzip
+lm_sensors
+qbittorrent
+hexchat -pretty decent irc client
+ibus
+ibus-qt -to make ibus work on qt apps, annoyingly it took qt4 as dep
+ibus-anthy -for jap input, also got anthy as dep, because based on it
+rxvt-unicode -or urxvt, xterm seems to have severe limitations, can't contact window manager.
