@@ -28,7 +28,7 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 URxvt*saveLines: 4096
 ! font, xft searches for fonts in /usr/share/fonts/X11 or just ~/.fonts
-URxvt.font: xft:Hack:size=8
+URxvt.font: xft:Hack:size=9
 URxvt.letterSpace: -1
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault

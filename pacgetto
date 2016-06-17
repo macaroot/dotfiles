@@ -14,6 +14,11 @@ flattr-icon-theme
 # gitted, I feel like I missed one or two before Font-Awesome, though might be hallucination
 Font-Awesome
 
+# AUR, in ~/.GAUR
+package-query
+yaourt
+google-chrome
+
 #rest
 grub
 efibootmgr
@@ -45,7 +50,7 @@ gvfs	-this and previous for automounting
 feh	-image viewer and wallpaper manager
 xclip -simple terminalbased clipboard, might not work between apps, apparently works between x apps, middleclickpaste
 strace -checking what files a command checks!!
-vlc !! didn't work out of box, uninstalled but didn't remove deps, so very slight bloat
+vlc !! didn't work out of box, uninstalled but reinstalled
 mpv -to replace vlc, WORKS FUCKING BEAUTIFULLY
 lxappearance -to configure gtk apps, I still don't quite get all the different frameworks. Apparently I can just get them all without much problem. But ofc it's wise to get a way to configure them, not waste hours on that. Also apparently Arch is pretty gtk friendly? Maybe idk the wiki is odd
 zip
@@ -57,3 +62,22 @@ ibus
 ibus-qt -to make ibus work on qt apps, annoyingly it took qt4 as dep
 ibus-anthy -for jap input, also got anthy as dep, because based on it
 rxvt-unicode -or urxvt, xterm seems to have severe limitations, can't contact window manager.
+gimp -it also does screenshots!
+krita -jesus it threw a bunch of krita deps on me
+xf86-input-wacom
+geeqie -super nice and fast image viewer, but apparently no support for gif, not uninstalling though.
+viewnior
+libreoffice-still
+scribes -for when you need to open a txt file outside of terminal
+zathura, zathura-pdf-mupdf, mupdf -for pdf viewing
+libqalculate -as calculator but give odd error message and won't start
+anki -for memorizing a'la matti
+audacity -audio things
+lmms
+rhythmbox -for listening musac
+mumble
+skype -it threw a lot of lib32's at me
+liferea -for RSS
+xorg-xev -way to get x events, xev -event keyboard, any key pressed while focus on the floating screen prints info of it, need to get all of these xorg things maybe
+wine
+

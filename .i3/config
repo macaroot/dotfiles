@@ -108,28 +108,38 @@ bindsym $m+Shift+minus move scratchpad
 bindsym $m+minus scratchpad show
 
 # workspace variables
-set $workspace1 "1"
+set $workspace1 "   1   "
 set $workspace2 "Furfax"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
+set $workspace3 "   3   "
+set $workspace4 "   4   "
+set $workspace5 "   5   "
+set $workspace6 "   6   "
+set $workspace7 "   7   "
+set $workspace8 "   8   "
+set $workspace9 "   9   "
+set $workspace10 "   0   "
 
-# switch to workspace
+# switch to workspace, KP things to add keypad support
 bindsym $m+1 workspace $workspace1
+bindsym $m+KP_1 workspace $workspace1
 bindsym $m+2 workspace $workspace2
+bindsym $m+KP_2  workspace $workspace1
 bindsym $m+3 workspace $workspace3
+bindsym $m+KP_3  workspace $workspace1
 bindsym $m+4 workspace $workspace4
+bindsym $m+KP_4  workspace $workspace1
 bindsym $m+5 workspace $workspace5
+bindsym $m+KP_5  workspace $workspace1
 bindsym $m+6 workspace $workspace6
+bindsym $m+KP_6  workspace $workspace1
 bindsym $m+7 workspace $workspace7
+bindsym $m+KP_7  workspace $workspace1
 bindsym $m+8 workspace $workspace8
+bindsym $m+KP_8  workspace $workspace1
 bindsym $m+9 workspace $workspace9
+bindsym $m+KP_9  workspace $workspace1
 bindsym $m+0 workspace $workspace10
+bindsym $m+KP_0 workspace $workspace1
 
 # move focused container to workspace
 bindsym $m+Shift+1 move container to workspace $workspace1
@@ -146,6 +156,9 @@ bindsym $m+Shift+0 move container to workspace $workspace10
 # start applications at certain workspaces, commented for permanent, first one for just the first time. Fuck, second opened firefox to work1 immediately
 assign [class="^Firefox$"] $workspace2
 # exec --no-startup-id i3-msg 'workspace $workspace2'; exec firefox'
+
+# don't focus firefox, useful when opening links from other apps
+no_focus [class="^Firefox$"]
 
 # start workspaces at certain screens
 workspace $workspace2 output DVI-1
@@ -191,19 +204,21 @@ set $inactive_f_bg_col #eee8d5
 set $urgent_bg_col #dc3222f
 set $text_col #586e75
 set $inactive_text_col #586e75
+set $custom_bg #e9e1c9
 
 # then put them in their places
 # hint_or_whatev - border - background - text - indicator
-client.focused $bg_col $bg_col $text_col #657b83
-client.unfocused $inactive_bg_col $inactive_bg_col $inactive_text_col #657b83
+client.focused $custom_bg $custom_bg $text_col #657b83
+client.unfocused $bg_col $bg_col $inactive_text_col #657b83
 client.focused_inactive $inactive_f_bg_col $inactive_f_bg_col $inactive_text_col #657b83
 client.urgent $urgent_bg_col $urgent_bg_col $text_col #657b83
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+				tray_output primary
         status_command i3status
-				font pango:Noto Sans 8
+				font pango:Noto Sans 10
 				colors {
 					statusline $text_col
 					background $bg_col

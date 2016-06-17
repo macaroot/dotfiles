@@ -1,13 +1,28 @@
 "" plug.vim, plugin manager
-"call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 																				" :PlugInstall - installs all the uncommented Plugs
-"Plug 'easymotion/vim-easymotion'
-"Plug 'scrooloose/nerdtree'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'tpope/vim-fugitive'
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'vimwiki/vimwiki'
+Plug 'SirVer/ultisnips'									" snippets engine
+Plug 'honza/vim-snippets'								" snippet library
+Plug 'terryma/vim-multiple-cursors'
+
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
+" trigger configuration for ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 set nocompatible												" choose no compatibility with legacy vi
 filetype plugin on											" load filetype plugins
@@ -28,7 +43,7 @@ set magic																" turns on magic for Regular Expression
 " set nobackup														"|
 " set nowb																" nobackup and annoying swap files
 " set noswapfile													"|
-set rtp+=~/.fzf													" connect to fuzzy file search, ctrl+t to use
+" set rtp+=~/.fzf													" connect to fuzzy file search, ctrl+t to use. I'm using vim.plug to manage it, it was recommended
 set clipboard=unnamedplus								" this should allow pasting from x applications and others
 
 

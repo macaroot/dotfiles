@@ -32,6 +32,9 @@ export HISTIGNORE="clear:history"
 export HISTSIZE=4096
 export HISTFILESIZE=8192
 
+# idk yaourt once asked me to do this
+export VISUAL="vim"
+
 # Change the window title of X terminals
 case ${TERM} in
 	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
@@ -161,3 +164,5 @@ colors() {
 		echo; echo
 	done
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
