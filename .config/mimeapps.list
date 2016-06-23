@@ -12,9 +12,11 @@ application/x-extension-xhtml=userapp-Firefox-KB0RIY.desktop
 application/x-extension-xht=userapp-Firefox-KB0RIY.desktop
 
 [Added Associations]
-image/png=feh.desktop;
+image/png=viewnior.desktop;feh.desktop;
 image/jpeg=feh.desktop;
 image/gif=feh.desktop;
-video/x-matroska=vlc.desktop;mpv.desktop;
+video/x-matroska=mpv.desktop;vlc.desktop;
 application/pdf=zathura-pdf-mupdf.desktop;
 application/x-bittorrent=qBittorrent.desktop;
+application/zip=org.gnome.FileRoller.desktop;
+text/plain=libreoffice-writer.desktop;

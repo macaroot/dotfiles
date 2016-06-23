@@ -123,23 +123,23 @@ set $workspace10 "   0   "
 bindsym $m+1 workspace $workspace1
 bindsym $m+KP_1 workspace $workspace1
 bindsym $m+2 workspace $workspace2
-bindsym $m+KP_2  workspace $workspace1
+bindsym $m+KP_2  workspace $workspace2
 bindsym $m+3 workspace $workspace3
-bindsym $m+KP_3  workspace $workspace1
+bindsym $m+KP_3  workspace $workspace3
 bindsym $m+4 workspace $workspace4
-bindsym $m+KP_4  workspace $workspace1
+bindsym $m+KP_4  workspace $workspace4
 bindsym $m+5 workspace $workspace5
-bindsym $m+KP_5  workspace $workspace1
+bindsym $m+KP_5  workspace $workspace5
 bindsym $m+6 workspace $workspace6
-bindsym $m+KP_6  workspace $workspace1
+bindsym $m+KP_6  workspace $workspace6
 bindsym $m+7 workspace $workspace7
-bindsym $m+KP_7  workspace $workspace1
+bindsym $m+KP_7  workspace $workspace7
 bindsym $m+8 workspace $workspace8
-bindsym $m+KP_8  workspace $workspace1
+bindsym $m+KP_8  workspace $workspace8
 bindsym $m+9 workspace $workspace9
-bindsym $m+KP_9  workspace $workspace1
+bindsym $m+KP_9  workspace $workspace9
 bindsym $m+0 workspace $workspace10
-bindsym $m+KP_0 workspace $workspace1
+bindsym $m+KP_0 workspace $workspace10
 
 # move focused container to workspace
 bindsym $m+Shift+1 move container to workspace $workspace1
@@ -153,9 +153,9 @@ bindsym $m+Shift+8 move container to workspace $workspace8
 bindsym $m+Shift+9 move container to workspace $workspace9
 bindsym $m+Shift+0 move container to workspace $workspace10
 
-# start applications at certain workspaces, commented for permanent, first one for just the first time. Fuck, second opened firefox to work1 immediately
-assign [class="^Firefox$"] $workspace2
-# exec --no-startup-id i3-msg 'workspace $workspace2'; exec firefox'
+# start applications at certain workspaces, commented for permanent, first one for just the first time. Fuck, second opened firefox to work1 immediately. Quote was at wrong place, maybe works now
+# assign [class="^Firefox$"] $workspace2
+exec --no-startup-id i3-msg 'workspace $workspace2; exec firefox'
 
 # don't focus firefox, useful when opening links from other apps
 no_focus [class="^Firefox$"]

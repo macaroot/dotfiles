@@ -54,6 +54,8 @@ export QT_IM_MODULE=ibus
 # export GTK_IM_MODULE_FILE=/etc/gtk-2.0/gtk.immodules
 export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
 ibus-daemon -drx
+# set wacom at startup on the wacom screen
+xsetwacom set "Wacom Cintiq 22HD Pad pad" MapToOutput DVI-0 && xsetwacom set "Wacom Cintiq 22HD Pen stylus" MapToOutput DVI-0 && xsetwacom set "Wacom Cintiq 22HD Pen eraser" MapToOutput DVI-0
 
 # don't know if these next 103 lines break this
 use_color=true

@@ -80,4 +80,15 @@ skype -it threw a lot of lib32's at me
 liferea -for RSS
 xorg-xev -way to get x events, xev -event keyboard, any key pressed while focus on the floating screen prints info of it, need to get all of these xorg things maybe
 wine
-
+shutter -for scrheenshots. Oh my god it got me a lot of perl and html deps. but w/
+archive-roller -zips
+lrzip
+p7zip
+unrar
+thunar-archive-plugin
+blender
+synfigstudio
+steam -zenity? came with it
+lib32-mesa-dri -steam 32 mesa library
+lib32-alsa-plugins for steam
+lib32-curl -to update at first run
