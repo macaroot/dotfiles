@@ -117,7 +117,7 @@ set $workspace6 "   6   "
 set $workspace7 "   7   "
 set $workspace8 "   8   "
 set $workspace9 "   9   "
-set $workspace10 "   0   "
+set $workspace10 " comms "
 
 # switch to workspace, KP things to add keypad support
 bindsym $m+1 workspace $workspace1
@@ -143,15 +143,25 @@ bindsym $m+KP_0 workspace $workspace10
 
 # move focused container to workspace
 bindsym $m+Shift+1 move container to workspace $workspace1
+bindsym $m+Shift+KP_1 move container to workspace $workspace1
 bindsym $m+Shift+2 move container to workspace $workspace2
+bindsym $m+Shift+KP_2 move container to workspace $workspace2
 bindsym $m+Shift+3 move container to workspace $workspace3
+bindsym $m+Shift+KP_3 move container to workspace $workspace3
 bindsym $m+Shift+4 move container to workspace $workspace4
+bindsym $m+Shift+KP_4 move container to workspace $workspace4
 bindsym $m+Shift+5 move container to workspace $workspace5
+bindsym $m+Shift+KP_5 move container to workspace $workspace5
 bindsym $m+Shift+6 move container to workspace $workspace6
+bindsym $m+Shift+KP_6 move container to workspace $workspace6
 bindsym $m+Shift+7 move container to workspace $workspace7
+bindsym $m+Shift+KP_7 move container to workspace $workspace7
 bindsym $m+Shift+8 move container to workspace $workspace8
+bindsym $m+Shift+KP_8 move container to workspace $workspace8
 bindsym $m+Shift+9 move container to workspace $workspace9
+bindsym $m+Shift+KP_9 move container to workspace $workspace9
 bindsym $m+Shift+0 move container to workspace $workspace10
+bindsym $m+Shift+KP_0 move container to workspace $workspace10
 
 # start applications at certain workspaces, commented for permanent, first one for just the first time. Fuck, second opened firefox to work1 immediately. Quote was at wrong place, maybe works now
 # assign [class="^Firefox$"] $workspace2
@@ -162,6 +172,7 @@ no_focus [class="^Firefox$"]
 
 # start workspaces at certain screens
 workspace $workspace2 output DVI-1
+workspace $workspace10 output DVI-0
 
 # reload the configuration file
 bindsym $m+Shift+c reload

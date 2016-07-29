@@ -21,6 +21,19 @@ rm -Rf ~/.steam/steam/appcache
     #6 tell steam to load the latest libstdc++.so.6 from both lib and lib32 as necessary, use this to run Steam
 LD_PRELOAD='/usr/$LIB/libstdc++.so.6' DISPLAY=:0 steam
 
+# also, to diagnose if client module load failures at start, go to .steam/bin32 and run this, if something is 'not found', get it
+LD_LIBRARY_PATH=. ldd #name_of_.so_that_popup_said_was_missing_here
+# example that I had to use:
+LD_LIBRARY_PATH=. ldd vgui2_s.so
+# another diagnose thing for missing libraries
+cd ~/.local/share/Steam/ubuntu12_32
+LD_LIBRARY_PATH=".:${LD_LIBRARY_PATH}" ldd $(file *|sed '/ELF/!d;s/:.*//g')|grep 'not found'|sort|uniq
+# runs steam with native libraries, but this messes up somethings about steam diagnosing things, so enable with one sometimes??
+STEAM_RUNTIME=0 steam
+
+# THIS SOLVED THINGS FOR NOW, it uses dynamic linker (man 8 ld.so) to load specific libraries using the LD_PRELOAD environment variable
+LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' steam
+
     
 #WACOM, getting it's input tied to one monitor
  # set wacom input to one desktop

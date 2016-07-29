@@ -12,7 +12,7 @@ application/x-extension-xhtml=userapp-Firefox-KB0RIY.desktop
 application/x-extension-xht=userapp-Firefox-KB0RIY.desktop
 
 [Added Associations]
-image/png=viewnior.desktop;feh.desktop;
+image/png=gimp.desktop;viewnior.desktop;feh.desktop;
 image/jpeg=feh.desktop;
 image/gif=feh.desktop;
 video/x-matroska=mpv.desktop;vlc.desktop;
@@ -20,3 +20,6 @@ application/pdf=zathura-pdf-mupdf.desktop;
 application/x-bittorrent=qBittorrent.desktop;
 application/zip=org.gnome.FileRoller.desktop;
 text/plain=libreoffice-writer.desktop;
+video/mp4=mpv.desktop;vlc.desktop;
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop;
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;
