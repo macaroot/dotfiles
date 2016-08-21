@@ -13,7 +13,7 @@ application/x-extension-xht=userapp-Firefox-KB0RIY.desktop
 
 [Added Associations]
 image/png=gimp.desktop;viewnior.desktop;feh.desktop;
-image/jpeg=feh.desktop;
+image/jpeg=viewnior.desktop;geeqie.desktop;feh.desktop;
 image/gif=feh.desktop;
 video/x-matroska=mpv.desktop;vlc.desktop;
 application/pdf=zathura-pdf-mupdf.desktop;
@@ -23,3 +23,4 @@ text/plain=libreoffice-writer.desktop;
 video/mp4=mpv.desktop;vlc.desktop;
 application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop;
 application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;
+text/x-log=scribes.desktop;

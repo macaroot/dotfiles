@@ -19,6 +19,7 @@ package-query
 yaourt
 google-chrome
 discord-canary  -some test versoin of discord
+byond
 
 #rest
 grub
@@ -97,3 +98,4 @@ lib32-gtk2 -these two to get two libraries steam needed, libgkt-x11-2.0.so.0 and
 lib32-gdk-pixbuf2
 openal -also this for libopenal.so.1
 gparted, gpart, ntfs-3g -stuff for partitioning graphical
+libstdc++5, byond wanted this
