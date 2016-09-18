@@ -1,6 +1,6 @@
 "" plug.vim, plugin manager
 call plug#begin('~/.vim/plugged')
-																				" :PlugInstall - installs all the uncommented Plugs
+                                        " :PlugInstall - installs all the uncommented Plugs
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -11,8 +11,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vimwiki/vimwiki'
-Plug 'SirVer/ultisnips'									" snippets engine
-Plug 'honza/vim-snippets'								" snippet library
+Plug 'SirVer/ultisnips'                 " snippets engine
+Plug 'honza/vim-snippets'               " snippet library
 Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
@@ -24,90 +24,91 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
-set nocompatible												" choose no compatibility with legacy vi
-filetype plugin on											" load filetype plugins
-filetype indent on											" load filetype indentation
-syntax on																" enable syntax highlighting
-set encoding=utf8												" utf8 as standard encoding and en_US standard language
-set autoread														" autoread when file changed from outside
-set showcmd															" display incomplete commands
-set nostartofline												" stops certain things from going to SOL
-set laststatus=2												" always display statusline and format it???
+set nocompatible                        " choose no compatibility with legacy vi
+filetype plugin on                      " load filetype plugins
+filetype indent on                      " load filetype indentation
+syntax on                               " enable syntax highlighting
+set encoding=utf8                       " utf8 as standard encoding and en_US standard language
+set autoread                            " autoread when file changed from outside
+set showcmd                             " display incomplete commands
+set nostartofline                       " stops certain things from going to SOL
+set laststatus=2                        " always display statusline and format it???
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-set confirm															" ask to save if something is wrong
-set mouse=a															" mouse can be used in all modes
-set relativenumber											" start with relatives
-set so=5																" j and k move 5 lines
-set ruler																" always show current position
-set magic																" turns on magic for Regular Expression
-" set nobackup														"|
-" set nowb																" nobackup and annoying swap files
-" set noswapfile													"|
-" set rtp+=~/.fzf													" connect to fuzzy file search, ctrl+t to use. I'm using vim.plug to manage it, it was recommended
-set clipboard=unnamedplus								" this should allow pasting from x applications and others
+set confirm                             " ask to save if something is wrong
+set mouse=a                             " mouse can be used in all modes
+set relativenumber                      " start with relatives
+set so=5                                " j and k move 5 lines
+set ruler                               " always show current position
+set magic                               " turns on magic for Regular Expression
+" set nobackup                            "|
+" set nowb                                " nobackup and annoying swap files
+" set noswapfile                          "|
+" set rtp+=~/.fzf                         " connect to fuzzy file search, ctrl+t to use. I'm using vim.plug to manage it, it was recommended
+set clipboard=unnamedplus               " this should allow pasting from x applications and others
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Relative/Absolute line numbers
-																				" function to switch between modes
+                                        " function to switch between modes
 function! NumberToggle()
-	if(&relativenumber == 1)
-		set number
-	else
-		set relativenumber
-	endif
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
 endfunc
-																				" calling switch function with C-n
+                                        " calling switch function with C-n
 nnoremap <C-n> :call NumberToggle()<cr>
-																				" forcing absolute on out-of-focus windows
+                                        " forcing absolute on out-of-focus windows
 :au Focuslost * :set number
 :au FocusGained * :set relativenumber
-																				" forcing absolute on insert-mode
+                                        " forcing absolute on insert-mode
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Whitespace
-set tabstop=2 shiftwidth=2							" a tab is two spaces
-set backspace=indent,eol,start					" backspace through everything in insert mode
-set whichwrap+=<,>,h,l									" things that should wrap, wrap
-set smarttab														" uses spaces for alignment, makes the code look same in different machines(?)
-set lbr tw=500													" uses linebreak, at 500 characters
-set ai si wrap													" autoindent, smartindent, wrap lines, don't know if will cause problems
+set tabstop=4 shiftwidth=4              " a tab is four spaces
+set expandtab                           " pressing tabs inserts spaces, ctrl-V<Tab> to insert normal tab
+set backspace=indent,eol,start          " backspace through everything in insert mode
+set whichwrap+=<,>,h,l                  " things that should wrap, wrap
+set smarttab                            " uses spaces for alignment, makes the code look same in different machines(?)
+set lbr tw=500                          " uses linebreak, at 500 characters
+set ai si wrap                          " autoindent, smartindent, wrap lines, don't know if will cause problems
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Visuals
-" set number														" show line numnbers
-set cursorline													" underline current line
-set wildmenu														" visual autocomplete for command menu
-set showmatch														" highlight matching brackets
-set mat=3																" bracket match blinks 3/10s of a sec
-set cmdheight=3													" cmd window set to three
-color solarized													" colorscheme peachpuff
-set background=light											" though autodetect should perhaps get this already
-set lazyredraw													" don't redraw while executing macros, better performance
+" set number                            " show line numnbers
+set cursorline                          " underline current line
+set wildmenu                            " visual autocomplete for command menu
+set showmatch                           " highlight matching brackets
+set mat=3                               " bracket match blinks 3/10s of a sec
+set cmdheight=3                         " cmd window set to three
+color solarized                         " colorscheme peachpuff
+set background=light                      " though autodetect should perhaps get this already
+set lazyredraw                          " don't redraw while executing macros, better performance
 " specifies buffer behavior when switching between buffers
 try
-	set switchbuf=useopen,usetab,newtab
-	set stal=2
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
 catch
 endtry
 
 " return to last edit position when opening files
 " autocmd BufReadPost *
-	"\ if line("'\"") > 0 && line("'\""_) <= line("$") |
-	"\ 	exe "normal! g'\"" |
-	"\ endif
+  "\ if line("'\"") > 0 && line("'\""_) <= line("$") |
+  "\  exe "normal! g'\"" |
+  "\ endif
 " remember info about open buffers on close
 set viminfo^=%
 
 " delete trailing white space on save
 func! DeleteTrailingWS()
-	exe "normal mz"
-	%s/\s\+$//ge
-	exe "normal `z"
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
 endfunc
 autocmd BufWrite *.js :call DeleteTrailingWS()
 autocmd BufWrite *.css :call DeleteTrailingWS()
@@ -129,18 +130,18 @@ noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Folding
-set foldenable													" enable folding, || za opens/closes folds
-set foldlevelstart=10										" open most folds by default
-set foldnestmax=10											" 10 nested folds max
-set foldmethod=indent										" fold based on indent level
+set foldenable                          " enable folding, || za opens/closes folds
+set foldlevelstart=10                   " open most folds by default
+set foldnestmax=10                      " 10 nested folds max
+set foldmethod=indent                   " fold based on indent level
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Searching
-set hlsearch														" highlight matches
-set incsearch														" incremental search
-set ignorecase													" searches are case sensitive...
-set smartcase														" ...unless you put in capitals 
+set hlsearch                            " highlight matches
+set incsearch                           " incremental search
+set ignorecase                          " searches are case sensitive...
+set smartcase                           " ...unless you put in capitals 
 " press gv to search visually selected with vimgrep
 vnoremap <silent> gv :call VisualSelection('gv')<CR>
 " press \g to open vimgrep and put cursor in the right position
@@ -166,81 +167,81 @@ map <leader>p :cp<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""">
 "" Remaps
-																				" * and # find next and previous
-																				" occurrences of current visual
-																				" selection
+                                        " * and # find next and previous
+                                        " occurrences of current visual
+                                        " selection
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
-																				" comma as leader with(?) \
+                                        " comma as leader with(?) \
 let mapleader = "," 
-																				" easier window navigation, || splits done with :split and :vsplit
+                                        " easier window navigation, || splits done with :split and :vsplit
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-l> <C-w><C-l>
-																				" more natural split opening
+                                        " more natural split opening
 set splitbelow
 set splitright
-																				" close current/all buffers
+                                        " close current/all buffers
 map <leader>bd :Bclose<CR>
 map <leader>ba :Bclose<CR>
-																				" manage tabs
+                                        " manage tabs
 map <leader>tn :tabnew<CR>
 map <leader>to :tabonly<CR>
 map <leader>tc :tabclose<CR>
 map <leader>tm :tabmove<CR>
 map <leader>tl :tabn<CR>
 map <leader>th :tabp<CR>
-																				" opens new tab with current buffers tab
+                                        " opens new tab with current buffers tab
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-																				" switch cwd to the directory of the open buffer
+                                        " switch cwd to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-																				" move vertically by visual lines
+                                        " move vertically by visual lines
 nnoremap j gj
 nnoremap k gk
-																				" highlight last inserted text
+                                        " highlight last inserted text
 " nnoremap gV `[v`]
-																				" Y acts like D and C (i.e. yank until EOL), rather than yy, OR just use g_
+                                        " Y acts like D and C (i.e. yank until EOL), rather than yy, OR just use g_
 " map Y y$
-																				" C-L (redraw screen) also turns off search until next search
+                                        " C-L (redraw screen) also turns off search until next search
 nnoremap <leader>l :nohl<CR><C-L>
-																				" stop using arrows
+                                        " stop using arrows
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
-																				" also in normal, cool line moving tricks
+                                        " also in normal, cool line moving tricks
 noremap <Up> ddkP
 noremap <Down> ddp
 noremap <Left> bhd2iWBhP
 noremap <Right> bhd2iWWhp
-																				" STOP USING hjkl YOU PUSSY
+                                        " STOP USING hjkl YOU PUSSY
 " noremap <k> <NOP>
 " noremap <j> <NOP>
 " noremap <h> <NOP>
 " noremap <l> <NOP>
 
 " WINDOWSWAPPING!!!!!
-																				" use leader mw to mark window to be swapped, then go to where you want to swap and do leader pw
+                                        " use leader mw to mark window to be swapped, then go to where you want to swap and do leader pw
 function! MarkWindowSwap()
-	let g:markedWinNum = winnr()
+  let g:markedWinNum = winnr()
 endfunction
 
 function! DoWindowSwap()
-	"Mark destination
-	let curNum = winnr()
-	let curBuf = bufnr( "%" )
-	exe g:markedWinNum . "wincmd w"
-	"Switch to source and shuffle dest->source
-	let markedBuf = bufnr( "%" )
-	"Hide and open so that we aren't prompted and keep history
-	exe 'hide buf' curBuf
-	"Switch to dest and shuffle source->dest
-	exe curNum . "wincmd w"
-	"Hide and open so that we aren't prompted and keep history
-	exe 'hide buf' markedBuf 
-	endfunction
-	
+  "Mark destination
+  let curNum = winnr()
+  let curBuf = bufnr( "%" )
+  exe g:markedWinNum . "wincmd w"
+  "Switch to source and shuffle dest->source
+  let markedBuf = bufnr( "%" )
+  "Hide and open so that we aren't prompted and keep history
+  exe 'hide buf' curBuf
+  "Switch to dest and shuffle source->dest
+  exe curNum . "wincmd w"
+  "Hide and open so that we aren't prompted and keep history
+  exe 'hide buf' markedBuf 
+  endfunction
+  
 nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
 nmap <silent> <leader>pw :call DoWindowSwap()<CR>
 
@@ -253,49 +254,49 @@ set showmode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" to create language specific settings for certain filetypes/file extensions
 augroup configgroup
-	autocmd!
-	autocmd VimEnter * highlight clear SignColumn
-	autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
-		\:call <SID>StripTrailingWhitespaces()
-	autocmd FileType java setlocal noexpandtab
-	autocmd FileType java setlocal list
-	autocmd FileType java setlocal listchars=tab:+\ ,eol:-
-	autocmd FileType java setlocal formatprg=par\ -w80\ -T4
-	autocmd FileType php setlocal expandtab
-	autocmd FileType php setlocal list
-	autocmd FileType php setlocal listchars=tab:+\ ,eol:-
-	autocmd FileType php setlocal formatprg=par\ -w80\ -T4
-	autocmd FileType ruby setlocal tabstop=2
-	autocmd FileType ruby setlocal shiftwidth=2
-	autocmd FileType ruby setlocal softtabstop=2
-	autocmd FileType ruby setlocal commentstring=#\ %s
-	autocmd FileType python setlocal commentstring=#\ %s
-	autocmd BufEnter *.cls setlocal filetype=java
-	autocmd BufEnter *.zsh-theme setlocal filetype=zsh
-	autocmd BufEnter Makefile setlocal noexpandtab
-	autocmd BufEnter *.sh setlocal tabstop=2
-	autocmd BufEnter *.sh setlocal shiftwidth=2
-	autocmd BufEnter *.sh setlocal softtabstop=2
+  autocmd!
+  autocmd VimEnter * highlight clear SignColumn
+  autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
+    \:call <SID>StripTrailingWhitespaces()
+  autocmd FileType java setlocal noexpandtab
+  autocmd FileType java setlocal list
+  autocmd FileType java setlocal listchars=tab:+\ ,eol:-
+  autocmd FileType java setlocal formatprg=par\ -w80\ -T4
+  autocmd FileType php setlocal expandtab
+  autocmd FileType php setlocal list
+  autocmd FileType php setlocal listchars=tab:+\ ,eol:-
+  autocmd FileType php setlocal formatprg=par\ -w80\ -T4
+  autocmd FileType ruby setlocal tabstop=2
+  autocmd FileType ruby setlocal shiftwidth=2
+  autocmd FileType ruby setlocal softtabstop=2
+  autocmd FileType ruby setlocal commentstring=#\ %s
+  autocmd FileType python setlocal commentstring=#\ %s
+  autocmd BufEnter *.cls setlocal filetype=java
+  autocmd BufEnter *.zsh-theme setlocal filetype=zsh
+  autocmd BufEnter Makefile setlocal noexpandtab
+  autocmd BufEnter *.sh setlocal tabstop=2
+  autocmd BufEnter *.sh setlocal shiftwidth=2
+  autocmd BufEnter *.sh setlocal softtabstop=2
 augroup END
 
 """ don't close window when deleting a buffer
 " command! Bclose call <SID>BufcloseCloseIt()
-	" let l:currentBufNum = bufnr("%")
-	" let l:alternateBufNum = bufnr("#")
+  " let l:currentBufNum = bufnr("%")
+  " let l:alternateBufNum = bufnr("#")
 " 
-	" if buflisted(l:alternateBufNum)
-	" 	buffer #
-	" else
-	" 	bnext
-	" endif
+  " if buflisted(l:alternateBufNum)
+  "   buffer #
+  " else
+  "   bnext
+  " endif
 " 
-	" if bufnr("%") == l:currentBufNum
-	" 	new
-	" endif
+  " if bufnr("%") == l:currentBufNum
+  "   new
+  " endif
 " 
-	" if buflisted(l:currentBufNum)
-	" 	execute("bdelete! ".l:currentBufNum)
-	" endif
+  " if buflisted(l:currentBufNum)
+  "   execute("bdelete! ".l:currentBufNum)
+  " endif
 " endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" crazy shit

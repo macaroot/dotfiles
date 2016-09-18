@@ -24,3 +24,5 @@ video/mp4=mpv.desktop;vlc.desktop;
 application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop;
 application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;
 text/x-log=scribes.desktop;
+text/html=userapp-Firefox-KB0RIY.desktop;
+application/javascript=scribes.desktop;

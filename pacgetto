@@ -20,6 +20,16 @@ yaourt
 google-chrome
 discord-canary  -some test versoin of discord
 byond
+wd719-firmware 1-3, pacman -Syu keeps bugging about this and the  belowtwo one modules being missing
+aic94xx
+
+# development
+php, for doing php
+apache, for apache server
+php-apache, to have them work together
+mariadb, the defaul implementation of MySQL on Arch
+phpmyadmin, for easier configuration for all. localhost/phpmyadmin/index.php
+filezilla, ftp for siteground
 
 #rest
 grub
@@ -70,7 +80,7 @@ xf86-input-wacom
 geeqie -super nice and fast image viewer, but apparently no support for gif, not uninstalling though.
 viewnior
 libreoffice-still
-scribes -for when you need to open a txt file outside of terminal
+scribes -text editor for when you need to open a txt file outside of terminal
 zathura, zathura-pdf-mupdf, mupdf -for pdf viewing
 libqalculate -as calculator but give odd error message and won't start
 anki -for memorizing a'la matti
@@ -99,3 +109,5 @@ lib32-gdk-pixbuf2
 openal -also this for libopenal.so.1
 gparted, gpart, ntfs-3g -stuff for partitioning graphical
 libstdc++5, byond wanted this
+atom, text editor IDE, let's see if it's as slow on linux
+wget, for downloading things straight through urls
