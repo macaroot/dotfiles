@@ -3,7 +3,7 @@
 from="/home/macaroot"
 to="/home/macaroot/dotfiles"
 
-cp -pR $from/{.bash_profile,.bashrc,.gtkrc-2.0,.i3status.conf,.inputrc,Junk,pacgetto,.tmux.conf,.vimrc,.xinitrc,.Xresources} $to
+cp -pR $from/{.bash_profile,.bashrc,.gtkrc-2.0,.i3status.conf,.inputrc,Junk,pacgetto,.vimrc,.xinitrc,.Xresources} $to
 
 mkdir -p $to/{.config,.i3,Junk}
 

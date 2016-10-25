@@ -30,6 +30,12 @@ php-apache, to have them work together
 mariadb, the defaul implementation of MySQL on Arch
 phpmyadmin, for easier configuration for all. localhost/phpmyadmin/index.php
 filezilla, ftp for siteground
+gdb, gnu c debugger
+cgdb, curses source vie for gdb
+valgrind, another debugger
+apitrace, opengl debug and optimize
+cscope, for parsing code, used as vim plugin
+splint, static checking for C security vulnerabilities and coding mistakes
 
 #rest
 grub
@@ -111,3 +117,7 @@ gparted, gpart, ntfs-3g -stuff for partitioning graphical
 libstdc++5, byond wanted this
 atom, text editor IDE, let's see if it's as slow on linux
 wget, for downloading things straight through urls
+fbida, console image viewer
+weechat, irc for console
+tigervnc, vnc server for connecting to comp from android
+fontforge, font editor and creator

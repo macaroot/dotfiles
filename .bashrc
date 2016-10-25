@@ -167,4 +167,7 @@ colors() {
 	done
 }
 
+# fix tmux showing everything in bold when using vim
+alias tmux="TERM=screen-256colors /usr/bin/tmux"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

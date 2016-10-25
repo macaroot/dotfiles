@@ -1,28 +1,49 @@
 "" plug.vim, plugin manager
 call plug#begin('~/.vim/plugged')
                                         " :PlugInstall - installs all the uncommented Plugs
-Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'vimwiki/vimwiki'
-Plug 'SirVer/ultisnips'                 " snippets engine
-Plug 'honza/vim-snippets'               " snippet library
-Plug 'terryma/vim-multiple-cursors'
+"Plug 'easymotion/vim-easymotion'
+"Plug 'scrooloose/nerdtree'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'tpope/vim-fugitive'
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'tmux-plugins/vim-tmux-focus-events'
+"Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-commentary'
+"Plug 'vimwiki/vimwiki'
+"Plug 'SirVer/ultisnips'                 " snippets engine
+"Plug 'honza/vim-snippets'               " snippet library
+"Plug 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/syntastic'             " error detection
 
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%*
+
+let g:statline_syntastic = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_c_compiler = 'gcc'
+let g:syntastic_c_include_dirs = ['/usr/include/SDL2', '/usr/include/GL/']
+
+
 " trigger configuration for ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" set terminal
+"set term=rxvt-unicode
+"if &term =~ '256color'
+"    " Disable Background Color Erase (BCE) so color schemes render properly
+"    " inside 256-color tmux and GNU screen
+"    set t_ut=
+"endif
 
 set nocompatible                        " choose no compatibility with legacy vi
 filetype plugin on                      " load filetype plugins
@@ -70,12 +91,16 @@ autocmd InsertLeave * :set relativenumber
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Whitespace
 set tabstop=4 shiftwidth=4              " a tab is four spaces
-set expandtab                           " pressing tabs inserts spaces, ctrl-V<Tab> to insert normal tab
+"set expandtab                           " pressing tabs inserts spaces, ctrl-V<Tab> to insert normal tab
 set backspace=indent,eol,start          " backspace through everything in insert mode
 set whichwrap+=<,>,h,l                  " things that should wrap, wrap
 set smarttab                            " uses spaces for alignment, makes the code look same in different machines(?)
 set lbr tw=500                          " uses linebreak, at 500 characters
 set ai si wrap                          " autoindent, smartindent, wrap lines, don't know if will cause problems
+set list
+set listchars+=eol:\ ,tab:\|\ ,trail:·     " show eol trailing space whitespaces as characters
+autocmd ColorScheme * highlight SpecialKey ctermbg=15 ctermfg=180
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -86,9 +111,15 @@ set wildmenu                            " visual autocomplete for command menu
 set showmatch                           " highlight matching brackets
 set mat=3                               " bracket match blinks 3/10s of a sec
 set cmdheight=3                         " cmd window set to three
-color solarized                         " colorscheme peachpuff
+color solarized                         " colorscheme solarized
 set background=light                      " though autodetect should perhaps get this already
 set lazyredraw                          " don't redraw while executing macros, better performance
+
+" specifies column markers and color for 80 and 120 onwards
+"let &colorcolumn="80,".join(range(120,999),",")
+let &colorcolumn=join(range(80,999),",")
+highlight ColorColumn ctermbg=7
+
 " specifies buffer behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
@@ -130,6 +161,7 @@ noremap <leader>m mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Folding
+" :mkview to save your folds, :loadview when you next have the file open to reload
 set foldenable                          " enable folding, || za opens/closes folds
 set foldlevelstart=10                   " open most folds by default
 set foldnestmax=10                      " 10 nested folds max
@@ -165,6 +197,10 @@ map <leader>p :cp<CR>
 " nnoremap <silent> <leader>f :call fzf#run<CR>
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Autocompletion
+set path+=**                            " searches stuff from current folder and below
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""">
 "" Remaps
                                         " * and # find next and previous
@@ -173,7 +209,7 @@ map <leader>p :cp<CR>
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
                                         " comma as leader with(?) \
-let mapleader = "," 
+let mapleader = ","
                                         " easier window navigation, || splits done with :split and :vsplit
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
@@ -206,10 +242,10 @@ nnoremap k gk
                                         " C-L (redraw screen) also turns off search until next search
 nnoremap <leader>l :nohl<CR><C-L>
                                         " stop using arrows
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
+"inoremap <Up> <NOP>
+"inoremap <Down> <NOP>
+"inoremap <Left> <NOP>
+"inoremap <Right> <NOP>
                                         " also in normal, cool line moving tricks
 noremap <Up> ddkP
 noremap <Down> ddp

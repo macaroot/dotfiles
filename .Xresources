@@ -12,6 +12,8 @@ XTerm*loginShell: true
 XTerm*faceName: Hack
 XTerm*faceSize: 8
 XTerm*initialFont: 4
+XTerm*cursorBlink: true
+XTerm*cursorUnderLine: true
 
 ! URxvt things
 URxvt*loginShell: true
@@ -28,8 +30,10 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 URxvt*saveLines: 4096
 ! font, xft searches for fonts in /usr/share/fonts/X11 or just ~/.fonts
-URxvt.font: xft:Hack:size=9
+URxvt.font: xft:Hack:size=8
 URxvt.letterSpace: -1
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: true
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
